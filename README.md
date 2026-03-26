@@ -1,5 +1,16 @@
-# Vue 3 + Vite
+Mini E-Commerce project
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+This is a frontend only application built with Vue.js 3
 
-Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
+Running the project:
+1. Clone the repository
+    bash
+    git clone https://github.com/effbdt/Mini-ECommerce
+
+2. Install the dependencies
+    Bash
+    npm install
+
+3. Run the dev server
+    Bash
+    npm run dev
