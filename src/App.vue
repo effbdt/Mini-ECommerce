@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import { products } from './data/products';
 import ProductCard from './components/ProductCard.vue';
+import CartSummary from './components/CartSummary.vue';
 
 const cart = ref([])
 
@@ -21,6 +22,9 @@ function addToCart(productId) {
 
 <template>
   <h1>Products</h1>
+
+  <CartSummary :cart="cart" :products="products"/>
+
 
   <ProductCard v-for="p in products" :key="p.id" :product="p"
   @add-to-cart="addToCart" />
