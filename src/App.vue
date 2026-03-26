@@ -1,8 +1,9 @@
 <script setup>
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import { products } from './data/products';
 import ProductCard from './components/ProductCard.vue';
 import CartSummary from './components/CartSummary.vue';
+import FiltersBar from './components/FiltersBar.vue';
 
 const cart = ref([])
 
@@ -18,16 +19,53 @@ function addToCart(productId) {
   console.log(cart.value)
 }
 
+const filters = ref({
+  search: '',
+  category: '',
+  sort: ''
+})
+
+const categories = computed(() => [...new Set(products.map(p => p.category))])
+
+const filteredProducts = computed(() => {
+  let result = [...products]
+
+  //search
+  if (filters.value.search) {
+    result = result.filter(p =>
+      p.name.toLowerCase().includes(filters.value.search.toLowerCase())
+    )
+  }
+
+  //category
+  if (filters.value.category) {
+    result = result.filter(p => p.category === filters.value.category)
+  }
+
+  //sort
+  if (filters.value.sort === 'price-asc') {
+    result.sort((a, b) => a.price - b.price)
+  } else if (filters.value.sort === 'price-desc') {
+    result.sort((a, b) => b.price - a.price)
+  } else if (filters.value.sort === 'rating-desc') {
+    result.sort((a, b) => b.rating - a.rating)
+  }
+
+  return result
+
+})
+
 </script>
 
 <template>
   <h1>Products</h1>
 
-  <CartSummary :cart="cart" :products="products"/>
+  <FiltersBar @update-filters="filters = $event" :categories="categories" />
+
+  <CartSummary :cart="cart" :products="products" />
 
 
-  <ProductCard v-for="p in products" :key="p.id" :product="p"
-  @add-to-cart="addToCart" />
+  <ProductCard v-for="p in filteredProducts" :key="p.id" :product="p" @add-to-cart="addToCart" />
 
 </template>
 
