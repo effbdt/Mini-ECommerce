@@ -47,7 +47,7 @@ const deal = computed(() => {
 }
 
 .deal-main h3 {
-    margin-top: 20px;
+    margin-top: 1x;
     color: #333;
 }
 

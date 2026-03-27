@@ -78,7 +78,7 @@ const filteredProducts = computed(() => {
   </div>
 </template>
 
-<style scoped>
+<style>
 h1 {
   text-align: center;
   padding: 15px 0;
@@ -110,5 +110,9 @@ h1 {
 
 .div5 {
   grid-area: 4 / 1 / 5 / 3;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
 }
 </style>
