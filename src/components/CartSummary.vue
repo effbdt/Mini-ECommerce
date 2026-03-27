@@ -49,15 +49,47 @@ const totalPrice = computed(() =>
     </div>
 </template>
 
-<style>
+<style scoped>
 .cart-div {
-    border: 1px solid gray;
-    padding: 10px;
+    border: 1px solid #ddd;
+    padding: 15px;
     margin: 10px 0;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .title-div {
     display: flex;
     align-items: center;
+    margin-bottom: 12px;
+}
+
+.title-div h2 {
+    margin: 0;
+    margin-left: 8px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+}
+
+li {
+    padding: 8px;
+    margin: 4px 0;
+    background-color: white;
+    border-left: 3px solid green;
+    border-radius: 3px;
+    font-size: 14px;
+}
+
+p {
+    font-weight: bold;
+    margin: 8px 0;
+    padding: 8px;
+    background-color: white;
+    border-radius: 3px;
 }
 </style>
