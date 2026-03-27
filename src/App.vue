@@ -4,6 +4,7 @@ import { products } from './data/products';
 import ProductList from './components/ProductList.vue';
 import CartSummary from './components/CartSummary.vue';
 import FiltersBar from './components/FiltersBar.vue';
+import HighlightBox from './components/HighlightBox.vue';
 
 const cart = ref([])
 
@@ -58,22 +59,56 @@ const filteredProducts = computed(() => {
 </script>
 
 <template>
-  <h1>Mini E-Commerce Shop</h1>
-
-  <FiltersBar @update-filters="filters = $event" :categories="categories" />
-
-  <CartSummary :cart="cart" :products="products" />
-
-  <ProductList 
-  :products="filteredProducts"
-  @add-to-cart="addToCart"/>
- 
-
+  <div class="parent">
+    <div class="div1">
+      <h1>Mini E-Commerce Shop</h1>
+    </div>
+    <div class="div2">
+      <FiltersBar @update-filters="filters = $event" :categories="categories" />
+    </div>
+    <div class="div3">
+      <CartSummary :cart="cart" :products="products" />
+    </div>
+    <div class="div4">
+      <HighlightBox :products="products" />
+    </div>
+    <div class="div5">
+      <ProductList :products="filteredProducts" @add-to-cart="addToCart" />
+    </div>
+  </div>
 </template>
 
-<style>
-h1{
+<style scoped>
+h1 {
   text-align: center;
   padding: 15px 0;
+}
+
+.parent {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto auto auto;
+  gap: 10px;
+  margin: 20px;
+}
+
+.div1 {
+  grid-area: 1 / 1 / 2 / 3;
+}
+
+.div2 {
+  grid-area: 2 / 1 / 3 / 2;
+}
+
+.div3 {
+  grid-area: 3 / 1 / 4 / 2;
+}
+
+.div4 {
+  grid-area: 2 / 2 / 4 / 3;
+}
+
+.div5 {
+  grid-area: 4 / 1 / 5 / 3;
 }
 </style>
