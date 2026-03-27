@@ -17,11 +17,9 @@ function handleClick() {
         <h3>{{ product.name }}</h3>
         <p>Price: ${{ product.price }}</p>
         <p>Category: {{ product.category }}</p>
-        <p>Rating: {{ product.rating }}*</p>
+        <p>Rating: {{ product.rating }}⭐</p>
 
-        <button 
-        :disabled="!product.inStock"
-        @click="handleClick">
+        <button :disabled="!product.inStock" @click="handleClick">
             {{ product.inStock ? "Add to Cart" : "Out of stock" }}
         </button>
     </div>

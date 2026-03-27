@@ -11,20 +11,20 @@ const totalItems = computed(() =>
 )
 
 const cartItems = computed(() =>
-  props.cart
-    .map(item => {
-      const product = props.products.find(p => p.id === item.id)
-      if (!product) return null
-      return {
-        ...item,
-        product,
-        lineTotal: product.price * item.quantity
-      }
-    })
-    .filter(Boolean)
+    props.cart
+        .map(item => {
+            const product = props.products.find(p => p.id === item.id)
+            if (!product) return null
+            return {
+                ...item,
+                product,
+                lineTotal: product.price * item.quantity
+            }
+        })
+        .filter(Boolean)
 )
 
-const totalPrice = computed(() => 
+const totalPrice = computed(() =>
     cartItems.value.reduce((sum, item) => sum + item.lineTotal, 0)
 )
 </script>
@@ -32,7 +32,11 @@ const totalPrice = computed(() =>
 
 <template>
     <div class="cart-div">
-        <h2>Cart Summary</h2>
+        <div class="title-div">
+            <img src="https://media.istockphoto.com/id/918978530/vector/eco-shopping.jpg?s=612x612&w=0&k=20&c=LPEhpoHnSq46HJ9HkTwpsALSZn4l21gy74aHkwZXMuM="
+                alt="shopping_cart" width="40px">
+            <h2>Shopping Cart</h2>
+        </div>
 
         <ul>
             <li v-for="item in cartItems" :key="item.id">
@@ -46,10 +50,14 @@ const totalPrice = computed(() =>
 </template>
 
 <style>
-
-.cart-div{
+.cart-div {
     border: 1px solid gray;
     padding: 10px;
     margin: 10px 0;
+}
+
+.title-div {
+    display: flex;
+    align-items: center;
 }
 </style>

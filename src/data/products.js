@@ -88,6 +88,6 @@ export const products = [
         category: "Accessories",
         inStock: false,
         rating: 1,
-        image: "https://img.freepik.com/free-psd/elegant-black-gold-sunglasses-stylish-accessory_191095-79382.jpg?semt=ais_hybrid&w=740&q=80"
+        image: "https://media.istockphoto.com/id/905125152/photo/aviator-sunglasses-isolated.jpg?s=612x612&w=0&k=20&c=cdqPJ4vSrfUIchpphcjjduMtjgPKrN_RGC5hEHtaJ68="
     }
 ]

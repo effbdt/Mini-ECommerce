@@ -23,7 +23,13 @@ watch([search, category, sort], () => {
 
 <template>
     <div class="filterbar-div">
-        <h2>Filters</h2>
+
+        <div class="filter_title">
+            <img src="https://images.emojiterra.com/twitter/v14.0/512px/1f50e.png" alt="mglass" width="20px">
+            <h2>Filters</h2>
+        </div>
+
+
 
         <input v-model="search" placeholder="Search product" />
 
@@ -46,5 +52,19 @@ watch([search, category, sort], () => {
     border: 1px solid gray;
     padding: 10px;
     margin: 10px 0;
+}
+
+
+.filter_title{
+    display: flex;
+    align-items: center;
+}
+
+input{
+    margin-right: 10px;
+}
+
+select{
+    margin-right: 10px;
 }
 </style>

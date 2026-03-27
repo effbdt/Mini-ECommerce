@@ -71,4 +71,9 @@ const filteredProducts = computed(() => {
 
 </template>
 
-<style></style>
+<style>
+h1{
+  text-align: center;
+  padding: 15px 0;
+}
+</style>
