@@ -38,6 +38,7 @@ function handleClick() {
     justify-content: space-between;
     background-color: #e6f7ff;
     border-radius: 5px;
+    box-shadow: 5px 2px 10px rgba(0, 0, 0, 0.2);
 }
 .product-card img {
     align-self: center;

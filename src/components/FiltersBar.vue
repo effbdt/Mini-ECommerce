@@ -49,22 +49,51 @@ watch([search, category, sort], () => {
 
 <style>
 .filterbar-div {
-    border: 1px solid gray;
-    padding: 10px;
+    border: 1px solid #ddd;
+    padding: 15px;
     margin: 10px 0;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-
 
 .filter_title{
     display: flex;
     align-items: center;
+    margin-bottom: 12px;
+}
+
+.filter_title h2 {
+    margin: 0;
+    margin-left: 8px;
 }
 
 input{
     margin-right: 10px;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+input:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 3px rgba(0, 123, 255, 0.3);
 }
 
 select{
     margin-right: 10px;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: white;
+}
+
+select:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 3px rgba(0, 123, 255, 0.3);
 }
 </style>
