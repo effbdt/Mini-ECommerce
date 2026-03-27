@@ -6,6 +6,8 @@ const props = defineProps({
     products: Array
 })
 
+const emit = defineEmits(['clear-cart'])
+
 const totalItems = computed(() =>
     props.cart.reduce((sum, item) => sum + item.quantity, 0)
 )
@@ -27,6 +29,7 @@ const cartItems = computed(() =>
 const totalPrice = computed(() =>
     cartItems.value.reduce((sum, item) => sum + item.lineTotal, 0)
 )
+
 </script>
 
 
@@ -46,10 +49,42 @@ const totalPrice = computed(() =>
 
         <p>Total Items: {{ totalItems }}</p>
         <p>Total Price: ${{ totalPrice.toFixed(2) }}</p>
+
+        <div class="empty-div">
+            <button @click="emit('clear-cart')" :disabled="cart.length === 0">
+                Empty Shopping Cart
+            </button>
+            <p>🗑️</p>
+        </div>
     </div>
 </template>
 
 <style scoped>
+.empty-div {
+    display: flex;
+}
+
+button {
+    border: 1px solid red;
+    border-radius: 5px;
+    font-weight: bold;
+    color: black;
+}
+
+button:hover:not(:disabled) {
+background-color: rgb(235, 71, 71);
+}
+
+button:disabled {
+    background-color: #ccc;
+    color: #666;
+    cursor: not-allowed;
+}
+
+button:active:not(:disabled) {
+    transform: translateY(1.5px);
+}
+
 .cart-div {
     border: 1px solid #ddd;
     padding: 15px;

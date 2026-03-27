@@ -56,6 +56,10 @@ const filteredProducts = computed(() => {
 
 })
 
+function clearCart() {
+  cart.value = []
+}
+
 </script>
 
 <template>
@@ -67,7 +71,7 @@ const filteredProducts = computed(() => {
       <FiltersBar @update-filters="filters = $event" :categories="categories" />
     </div>
     <div class="div3">
-      <CartSummary :cart="cart" :products="products" />
+      <CartSummary :cart="cart" :products="products" @clear-cart="clearCart" />
     </div>
     <div class="div4">
       <HighlightBox :products="products" />

@@ -53,11 +53,18 @@ function handleClick() {
     font-weight: bold;
 }
 
-.cart-button:hover{
+.cart-button:hover:not(:disabled){
     background-color: rgb(0, 200, 0);
 }
 
-.cart-button:active {
+.cart-button:disabled {
+    background-color: #ccc;
+    color: #666;
+    cursor: not-allowed;
+    border-color: #999;
+}
+
+.cart-button:active:not(:disabled) {
     transform: translateY(1.5px);
 }
 
